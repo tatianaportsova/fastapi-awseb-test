@@ -1,6 +1,9 @@
 from fastapi import FastAPI
+from joblib import load
+import pandas as pd
 
 app = FastAPI()
+pipeline = load('./pipeline.joblib')
 
 
 @app.get("/")
@@ -16,4 +19,6 @@ def predict(title: str):
 
     Naive baseline: Always predicts 'fake'
     """
-    return {'prediction': 'fake'}
+    df = pd.DataFrame.from_dict({'title':[title]})
+    pred = pipeline.predict(df)
+    return{'prediction':pred[0]}
