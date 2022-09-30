@@ -9,7 +9,7 @@ verify_ssl = true
 fastapi = "*"
 uvicorn = "*"
 awsebcli = "*"
-joblib = "==0.15.1"
+joblib = "==1.2.0"
 pandas = "==1.0.4"
 scikit-learn = "==0.22.2.post1"
 gunicorn = "*"
